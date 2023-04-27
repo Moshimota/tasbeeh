@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [total, setTotal] = useState(0)
+  if(total>99){
+    setTotal(0)
+  }
+  const clearFunc = () =>{
+    let a = prompt("siz haqiqatdan tozalamoqchimisiz\nagar ha bosa \"y\"\nagar yo'q bosa \"n\"")
+    if(a === "y"){
+      setTotal(0)
+    }
+  }
+  const KakFunc = () =>{
+    setTotal(total +1)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='bek'>
+        <div className='go'>
+          <button className='btn2' onClick={() => clearFunc("knopka.mp3")}>clear</button>
+        </div>
+        <div className='kak'>
+          <p className='con'>{total}</p>
+        </div>
+        <p className='duo'>سبحان الله</p>
+      <button className='btn' onClick={() => KakFunc("knopka.mp3")}></button>
+      </div>
     </div>
   );
 }
